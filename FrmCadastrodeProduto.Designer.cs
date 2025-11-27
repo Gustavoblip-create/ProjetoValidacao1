@@ -1,6 +1,6 @@
 ﻿namespace ProjetoValidacao1
 {
-    partial class Form1
+    partial class FrmCadastrodeProduto
     {
         /// <summary>
         ///  Required designer variable.

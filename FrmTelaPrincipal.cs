@@ -16,5 +16,10 @@ namespace ProjetoValidacao1
         {
             InitializeComponent();
         }
+
+        private void FrmTelaPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

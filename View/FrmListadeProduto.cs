@@ -16,5 +16,10 @@ namespace ProjetoValidacao1.View
         {
             InitializeComponent();
         }
+
+        private void FrmListadeProduto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

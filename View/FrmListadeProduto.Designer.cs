@@ -80,6 +80,7 @@
             Controls.Add(dgvListadeProduto);
             Name = "FrmListadeProduto";
             Text = "Lista de Produtos";
+            Load += FrmListadeProduto_Load;
             ((System.ComponentModel.ISupportInitialize)dgvListadeProduto).EndInit();
             ResumeLayout(false);
         }

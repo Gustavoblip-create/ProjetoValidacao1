@@ -28,12 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            dgvListadeProduto = new DataGridView();
+            btnExcluir = new Button();
+            btnPesquisar = new Button();
+            cbxPesquisar = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dgvListadeProduto).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvListadeProduto
+            // 
+            dgvListadeProduto.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvListadeProduto.Location = new Point(12, 41);
+            dgvListadeProduto.Name = "dgvListadeProduto";
+            dgvListadeProduto.Size = new Size(776, 368);
+            dgvListadeProduto.TabIndex = 0;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.Location = new Point(713, 416);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(75, 23);
+            btnExcluir.TabIndex = 1;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btnPesquisar
+            // 
+            btnPesquisar.Location = new Point(12, 12);
+            btnPesquisar.Name = "btnPesquisar";
+            btnPesquisar.Size = new Size(75, 23);
+            btnPesquisar.TabIndex = 2;
+            btnPesquisar.Text = "Pesquisar";
+            btnPesquisar.UseVisualStyleBackColor = true;
+            // 
+            // cbxPesquisar
+            // 
+            cbxPesquisar.FormattingEnabled = true;
+            cbxPesquisar.Location = new Point(93, 13);
+            cbxPesquisar.Name = "cbxPesquisar";
+            cbxPesquisar.Size = new Size(695, 23);
+            cbxPesquisar.TabIndex = 3;
+            // 
+            // FrmListadeProduto
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 446);
+            Controls.Add(cbxPesquisar);
+            Controls.Add(btnPesquisar);
+            Controls.Add(btnExcluir);
+            Controls.Add(dgvListadeProduto);
+            Name = "FrmListadeProduto";
+            Text = "Lista de Produtos";
+            ((System.ComponentModel.ISupportInitialize)dgvListadeProduto).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dgvListadeProduto;
+        private Button btnExcluir;
+        private Button btnPesquisar;
+        private ComboBox cbxPesquisar;
     }
 }

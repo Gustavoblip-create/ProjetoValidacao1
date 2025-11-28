@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjetoValidacao1.View;
 
 namespace ProjetoValidacao1
 {
@@ -19,6 +20,13 @@ namespace ProjetoValidacao1
 
         private void FrmTelaPrincipal_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmListadeProduto listaProdutos = new FrmListadeProduto();
+            listaProdutos.Show();
 
         }
     }

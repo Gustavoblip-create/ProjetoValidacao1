@@ -49,6 +49,7 @@
             button2.TabIndex = 1;
             button2.Text = "Lista de Produtos";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // FrmTelaPrincipal
             // 

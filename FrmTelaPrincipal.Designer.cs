@@ -28,20 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(8, 16);
+            button1.Name = "button1";
+            button1.Size = new Size(208, 23);
+            button1.TabIndex = 0;
+            button1.Text = "Cadastro de Produtos";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(259, 16);
+            button2.Name = "button2";
+            button2.Size = new Size(216, 23);
+            button2.TabIndex = 1;
+            button2.Text = "Lista de Produtos";
+            button2.UseVisualStyleBackColor = true;
             // 
             // FrmTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Honeydew;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Sem_título;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(967, 500);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Name = "FrmTelaPrincipal";
-            RightToLeftLayout = true;
-            Text = "Form2";
+            ShowIcon = false;
+            Text = "ProjetoValidacao1";
+            Load += FrmTelaPrincipal_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
+        private Button button2;
     }
 }

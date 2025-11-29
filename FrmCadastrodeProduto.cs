@@ -11,5 +11,10 @@ namespace ProjetoValidacao1
         {
 
         }
+
+        private void FrmCadastrodeProduto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

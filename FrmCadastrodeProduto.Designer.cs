@@ -146,6 +146,7 @@
             Controls.Add(bntSalvar);
             Name = "FrmCadastrodeProduto";
             Text = "Cadastro De Produtos";
+            Load += FrmCadastrodeProduto_Load;
             grbCadastrarProdutos.ResumeLayout(false);
             grbCadastrarProdutos.PerformLayout();
             ResumeLayout(false);

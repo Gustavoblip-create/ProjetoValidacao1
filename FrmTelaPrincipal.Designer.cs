@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnFrmCadastroProduto = new Button();
             button2 = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnFrmCadastroProduto
             // 
-            button1.Location = new Point(8, 16);
-            button1.Name = "button1";
-            button1.Size = new Size(208, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Cadastro de Produtos";
-            button1.UseVisualStyleBackColor = true;
+            btnFrmCadastroProduto.Location = new Point(8, 16);
+            btnFrmCadastroProduto.Name = "btnFrmCadastroProduto";
+            btnFrmCadastroProduto.Size = new Size(208, 23);
+            btnFrmCadastroProduto.TabIndex = 0;
+            btnFrmCadastroProduto.Text = "Cadastro de Produtos";
+            btnFrmCadastroProduto.UseVisualStyleBackColor = true;
+            btnFrmCadastroProduto.Click += button1_Click;
             // 
             // button2
             // 
@@ -59,7 +60,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(967, 500);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnFrmCadastroProduto);
             Name = "FrmTelaPrincipal";
             ShowIcon = false;
             Text = "ProjetoValidacao1";
@@ -69,7 +70,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnFrmCadastroProduto;
         private Button button2;
     }
 }

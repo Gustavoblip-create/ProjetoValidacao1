@@ -6,5 +6,10 @@ namespace ProjetoValidacao1
         {
             InitializeComponent();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

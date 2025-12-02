@@ -38,6 +38,8 @@
             txtPrecoProduto = new ComboBox();
             bntSalvar = new Button();
             grbCadastrarProdutos = new GroupBox();
+            lblLoteProduto = new Label();
+            txtLoteProduto = new ComboBox();
             grbCadastrarProdutos.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,7 +102,7 @@
             lblPrecoProduto.Size = new Size(100, 15);
             lblPrecoProduto.TabIndex = 7;
             lblPrecoProduto.Text = "Preço do Produto";
-            lblPrecoProduto.Click += label5_Click;
+            //lblPrecoProduto.Click += label5_Click;
             // 
             // txtPrecoProduto
             // 
@@ -118,9 +120,12 @@
             bntSalvar.TabIndex = 9;
             bntSalvar.Text = "Salvar";
             bntSalvar.UseVisualStyleBackColor = true;
+            bntSalvar.Click += bntSalvar_Click;
             // 
             // grbCadastrarProdutos
             // 
+            grbCadastrarProdutos.Controls.Add(txtLoteProduto);
+            grbCadastrarProdutos.Controls.Add(lblLoteProduto);
             grbCadastrarProdutos.Controls.Add(txtNomeProduto);
             grbCadastrarProdutos.Controls.Add(lblNomeProduto);
             grbCadastrarProdutos.Controls.Add(txtPrecoProduto);
@@ -135,6 +140,23 @@
             grbCadastrarProdutos.TabIndex = 10;
             grbCadastrarProdutos.TabStop = false;
             grbCadastrarProdutos.Text = "Cadastrar Produtos";
+            // 
+            // lblLoteProduto
+            // 
+            lblLoteProduto.AutoSize = true;
+            lblLoteProduto.Location = new Point(511, 107);
+            lblLoteProduto.Name = "lblLoteProduto";
+            lblLoteProduto.Size = new Size(93, 15);
+            lblLoteProduto.TabIndex = 9;
+            lblLoteProduto.Text = "Lote do Produto";
+            // 
+            // txtLoteProduto
+            // 
+            txtLoteProduto.FormattingEnabled = true;
+            txtLoteProduto.Location = new Point(511, 125);
+            txtLoteProduto.Name = "txtLoteProduto";
+            txtLoteProduto.Size = new Size(148, 23);
+            txtLoteProduto.TabIndex = 10;
             // 
             // FrmCadastrodeProduto
             // 
@@ -162,5 +184,7 @@
         private ComboBox txtPrecoProduto;
         private Button bntSalvar;
         private GroupBox grbCadastrarProdutos;
+        private ComboBox txtLoteProduto;
+        private Label lblLoteProduto;
     }
 }

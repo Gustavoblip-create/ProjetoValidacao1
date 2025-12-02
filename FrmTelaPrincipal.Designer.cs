@@ -28,28 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnCadastroDeproduto = new Button();
+            btnListaDeProduto = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnCadastroDeproduto
             // 
-            button1.Location = new Point(8, 16);
-            button1.Name = "button1";
-            button1.Size = new Size(208, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Cadastro de Produtos";
-            button1.UseVisualStyleBackColor = true;
+            btnCadastroDeproduto.Location = new Point(8, 16);
+            btnCadastroDeproduto.Name = "btnCadastroDeproduto";
+            btnCadastroDeproduto.Size = new Size(208, 23);
+            btnCadastroDeproduto.TabIndex = 0;
+            btnCadastroDeproduto.Text = "Cadastro de Produtos";
+            btnCadastroDeproduto.UseVisualStyleBackColor = true;
+            btnCadastroDeproduto.Click += btnCadastroDeproduto_Click;
             // 
-            // button2
+            // btnListaDeProduto
             // 
-            button2.Location = new Point(259, 16);
-            button2.Name = "button2";
-            button2.Size = new Size(216, 23);
-            button2.TabIndex = 1;
-            button2.Text = "Lista de Produtos";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnListaDeProduto.Location = new Point(259, 16);
+            btnListaDeProduto.Name = "btnListaDeProduto";
+            btnListaDeProduto.Size = new Size(216, 23);
+            btnListaDeProduto.TabIndex = 1;
+            btnListaDeProduto.Text = "Lista de Produtos";
+            btnListaDeProduto.UseVisualStyleBackColor = true;
+            btnListaDeProduto.Click += btnListaDeProduto_Click;
             // 
             // FrmTelaPrincipal
             // 
@@ -58,8 +59,8 @@
             BackgroundImage = Properties.Resources.Sem_título;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(967, 500);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnListaDeProduto);
+            Controls.Add(btnCadastroDeproduto);
             Name = "FrmTelaPrincipal";
             ShowIcon = false;
             Text = "ProjetoValidacao1";
@@ -69,7 +70,7 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnCadastroDeproduto;
+        private Button btnListaDeProduto;
     }
 }

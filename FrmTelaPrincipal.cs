@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using ProjetoValidacao1.View;
+using ProjetoValidacao1.DataBase;
+using Microsoft.Data.SqlClient;
+
 
 namespace ProjetoValidacao1
 {
@@ -18,17 +15,42 @@ namespace ProjetoValidacao1
             InitializeComponent();
         }
 
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conexao = ConexaoDB.GetConexao())
+                {
+                    conexao.Open();
+                    MessageBox.Show("Conexão Realizada com sucesso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao Conectar:" + ex.Message);
+
+            }
+
+        }
+
         private void FrmTelaPrincipal_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCadastroDeproduto_Click(object sender, EventArgs e)
         {
-            FrmListadeProduto listaProdutos = new FrmListadeProduto();
-            listaProdutos.Show();
-            //
+            FrmCadastrodeProduto cadastrodeProduto = new FrmCadastrodeProduto();
+            cadastrodeProduto.Show();
+        }
 
+        private void btnListaDeProduto_Click(object sender, EventArgs e)
+        {
+            FrmListadeProduto listadeProduto = new FrmListadeProduto();
+            listadeProduto.Show();
         }
     }
+
 }

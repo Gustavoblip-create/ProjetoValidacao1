@@ -3,7 +3,6 @@ using ProjetoValidacao1.DataBase;
 using ProjetoValidacao1.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace ProjetoValidacao1.Repository
 {
@@ -33,7 +32,6 @@ namespace ProjetoValidacao1.Repository
         public List<CadastroDeProduto> Listar()
         {
             List<CadastroDeProduto> lista = new List<CadastroDeProduto>();
-
             string sql = "SELECT * FROM CadastroDeProduto";
 
             using (SqlConnection con = ConexaoDB.GetConexao())
@@ -46,7 +44,7 @@ namespace ProjetoValidacao1.Repository
                 {
                     lista.Add(new CadastroDeProduto
                     {
-                        id = (int)dr["id_produto"],
+                        Id = (int)dr["id_produto"],
                         NomeProduto = dr["nome_produto"].ToString(),
                         DataProduto = (DateTime)dr["data_produto"],
                         ValorProduto = (decimal)dr["valor_produto"],
@@ -90,7 +88,7 @@ namespace ProjetoValidacao1.Repository
                 cmd.Parameters.AddWithValue("@data", p.DataProduto);
                 cmd.Parameters.AddWithValue("@valor", p.ValorProduto);
                 cmd.Parameters.AddWithValue("@lote", p.LoteProduto);
-                cmd.Parameters.AddWithValue("@id", p.id);
+                cmd.Parameters.AddWithValue("@id", p.Id);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -100,7 +98,7 @@ namespace ProjetoValidacao1.Repository
         // ============ BUSCAR POR ID ============
         public CadastroDeProduto BuscarPorId(int id)
         {
-            CadastroDeProduto p = null;
+            CadastroDeProduto produto = null;
 
             string sql = "SELECT * FROM CadastroDeProduto WHERE id_produto = @id";
 
@@ -114,9 +112,9 @@ namespace ProjetoValidacao1.Repository
 
                 if (dr.Read())
                 {
-                    p = new CadastroDeProduto
+                    produto = new CadastroDeProduto
                     {
-                        id = (int)dr["id_produto"],
+                        Id = (int)dr["id_produto"],
                         NomeProduto = dr["nome_produto"].ToString(),
                         DataProduto = (DateTime)dr["data_produto"],
                         ValorProduto = (decimal)dr["valor_produto"],
@@ -125,7 +123,7 @@ namespace ProjetoValidacao1.Repository
                 }
             }
 
-            return p;
+            return produto;
         }
     }
 }

@@ -22,7 +22,7 @@ namespace ProjetoValidacao1
                 CadastroDeProduto p = new 
                 {
                     Nome = txtNomeProduto.Text,
-                    DataProduto = Date.Value,
+                    DataProduto = txtDataProduto.Text,
                     Valor = decimal.Parse(txtPrecoProduto.Text),
                    
                 };

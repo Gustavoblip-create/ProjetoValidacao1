@@ -1,129 +1,165 @@
 ﻿using Microsoft.Data.SqlClient;
 using ProjetoValidacao1.DataBase;
 using ProjetoValidacao1.Model;
-using System;
-using System.Collections.Generic;
 
-namespace ProjetoValidacao1.Repository
+namespace ProjetoValidacao1.Repositories
+
 {
-    public class ProdutoRepository
+
+    public class CadastroDeProdutoRepository
+
     {
-        // ============ INSERIR =============
-        public void Inserir(CadastroDeProduto p)
+        public List<CadastroDeProduto> Listar(string termo = "")
+
         {
-            string sql = @"INSERT INTO CadastroDeProduto 
-                           (nome_produto, data_produto, valor_produto, lote_produto)
-                           VALUES (@nome, @data, @valor, @lote)";
 
-            using (SqlConnection con = ConexaoDB.GetConexao())
-            using (SqlCommand cmd = new SqlCommand(sql, con))
+            var lista = new List<CadastroDeProduto>();
+
+            using (var conexao = ConexaoDB.GetConexao())
+
             {
-                cmd.Parameters.AddWithValue("@nome", p.NomeProduto);
-                cmd.Parameters.AddWithValue("@data", p.DataProduto);
-                cmd.Parameters.AddWithValue("@valor", p.ValorProduto);
-                cmd.Parameters.AddWithValue("@lote", p.LoteProduto);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
+                string sql = "SELECT * FROM produtos";
 
-        // ============ LISTAR TODOS =============
-        public List<CadastroDeProduto> Listar()
-        {
-            List<CadastroDeProduto> lista = new List<CadastroDeProduto>();
-            string sql = "SELECT * FROM CadastroDeProduto";
+                if (!string.IsNullOrEmpty(termo))
 
-            using (SqlConnection con = ConexaoDB.GetConexao())
-            using (SqlCommand cmd = new SqlCommand(sql, con))
-            {
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
+                    sql = "SELECT * FROM produtos WHERE nome_produto LIKE @termo";
 
-                while (dr.Read())
+                using (var comando = new SqlCommand(sql, conexao))
+
                 {
-                    lista.Add(new CadastroDeProduto
+
+                    if (!string.IsNullOrEmpty(termo))
+
+                        comando.Parameters.AddWithValue("@termo", "%" + termo + "%");
+
+                    conexao.Open();
+
+                    using (var reader = comando.ExecuteReader())
+
                     {
-                        Id = (int)dr["id_produto"],
-                        NomeProduto = dr["nome_produto"].ToString(),
-                        DataProduto = (DateTime)dr["data_produto"],
-                        ValorProduto = (decimal)dr["valor_produto"],
-                        LoteProduto = dr["lote_produto"].ToString()
-                    });
+
+                        while (reader.Read())
+
+                        {
+
+                            lista.Add(new CadastroDeProduto()
+
+                            {
+
+                                Id = Convert.ToInt32(reader["id"]),
+
+                                NomeProduto = reader["nome_produto"].ToString(),
+
+                                ValorProduto = Convert.ToDecimal(reader["valor_produto"]),
+
+                                DataProduto = Convert.ToDateTime(reader["data_produto"]),
+
+                                LoteProduto = reader["lote_produto"].ToString()
+
+                            });
+
+                        }
+
+                    }
+
                 }
+
             }
 
             return lista;
+
         }
 
-        // ============ EXCLUIR POR ID ============
-        public void Excluir(int id)
+        public void Inserir(CadastroDeProduto produto)
         {
-            string sql = "DELETE FROM CadastroDeProduto WHERE id_produto = @id";
-
-            using (SqlConnection con = ConexaoDB.GetConexao())
-            using (SqlCommand cmd = new SqlCommand(sql, con))
+            using (var conexao = ConexaoDB.GetConexao())
             {
-                cmd.Parameters.AddWithValue("@id", id);
+                string sql =
+                    "INSERT INTO produtos(nome_produto, valor_produto, data_produto, lote_produto) " +
+                    "VALUES(@nome, @valor, @data, @lote)";
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        // ============ ATUALIZAR ============
-        public void Atualizar(CadastroDeProduto p)
-        {
-            string sql = @"UPDATE CadastroDeProduto 
-                           SET nome_produto = @nome,
-                               data_produto = @data,
-                               valor_produto = @valor,
-                               lote_produto = @lote
-                           WHERE id_produto = @id";
-
-            using (SqlConnection con = ConexaoDB.GetConexao())
-            using (SqlCommand cmd = new SqlCommand(sql, con))
-            {
-                cmd.Parameters.AddWithValue("@nome", p.NomeProduto);
-                cmd.Parameters.AddWithValue("@data", p.DataProduto);
-                cmd.Parameters.AddWithValue("@valor", p.ValorProduto);
-                cmd.Parameters.AddWithValue("@lote", p.LoteProduto);
-                cmd.Parameters.AddWithValue("@id", p.Id);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        // ============ BUSCAR POR ID ============
-        public CadastroDeProduto BuscarPorId(int id)
-        {
-            CadastroDeProduto produto = null;
-
-            string sql = "SELECT * FROM CadastroDeProduto WHERE id_produto = @id";
-
-            using (SqlConnection con = ConexaoDB.GetConexao())
-            using (SqlCommand cmd = new SqlCommand(sql, con))
-            {
-                cmd.Parameters.AddWithValue("@id", id);
-
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                using (var comando = new SqlCommand(sql, conexao))
                 {
-                    produto = new CadastroDeProduto
-                    {
-                        Id = (int)dr["id_produto"],
-                        NomeProduto = dr["nome_produto"].ToString(),
-                        DataProduto = (DateTime)dr["data_produto"],
-                        ValorProduto = (decimal)dr["valor_produto"],
-                        LoteProduto = dr["lote_produto"].ToString()
-                    };
+                    comando.Parameters.AddWithValue("@nome", produto.NomeProduto);
+                    comando.Parameters.AddWithValue("@valor", produto.ValorProduto);
+                    comando.Parameters.AddWithValue("@data", produto.DataProduto);
+                    comando.Parameters.AddWithValue("@lote", produto.LoteProduto);
+
+                    conexao.Open();
+                    comando.ExecuteNonQuery();
                 }
             }
-
-            return produto;
         }
+
+        public void Atualizar(CadastroDeProduto produto)
+
+        {
+
+            using (var conexao = ConexaoDB.GetConexao())
+
+            {
+
+                string sql =
+
+                    "UPDATE produtos SET nome_produto=@nome, valor_produto=@valor, " +
+
+                    "data_produto=@data, lote_produto=@lote WHERE id=@id";
+
+                using (var comando = new SqlCommand(sql, conexao))
+
+                {
+
+                    comando.Parameters.AddWithValue("@id", produto.Id);
+
+                    comando.Parameters.AddWithValue("@nome", produto.NomeProduto);
+
+                    comando.Parameters.AddWithValue("@valor", produto.ValorProduto);
+
+                    comando.Parameters.AddWithValue("@data", produto.DataProduto);
+
+                    comando.Parameters.AddWithValue("@lote", produto.LoteProduto);
+
+                    conexao.Open();
+
+                    comando.ExecuteNonQuery();
+
+                }
+
+            }
+
+        }
+
+        public void Excluir(int id)
+
+        {
+
+            using (var conexao = ConexaoDB.GetConexao())
+
+            {
+
+                string sql = "DELETE FROM produtos WHERE id=@id";
+
+                using (var comando = new SqlCommand(sql, conexao))
+
+                {
+
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    conexao.Open();
+
+                    comando.ExecuteNonQuery();
+
+                }
+
+            }
+
+        }
+
+
+
+
     }
+
 }
+

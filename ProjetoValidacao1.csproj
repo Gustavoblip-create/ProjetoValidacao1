@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="Controller\" />
+    <Folder Include="View\" />
   </ItemGroup>
 
 </Project>

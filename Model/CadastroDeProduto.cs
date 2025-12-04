@@ -12,8 +12,7 @@ namespace ProjetoValidacao1.Model
         public string? NomeProduto {get; set; }
         public decimal ValorProduto {get; set; }
         public DateTime? DataProduto {get; set; }
-        //
-        //
+        
         public string? LoteProduto {get; set; }
         
        

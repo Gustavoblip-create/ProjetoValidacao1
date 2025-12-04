@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             btnCadastroDeproduto = new Button();
-            btnListaDeProduto = new Button();
             SuspendLayout();
             // 
             // btnCadastroDeproduto
@@ -42,16 +41,6 @@
             btnCadastroDeproduto.UseVisualStyleBackColor = true;
             btnCadastroDeproduto.Click += btnCadastroDeproduto_Click;
             // 
-            // btnListaDeProduto
-            // 
-            btnListaDeProduto.Location = new Point(259, 16);
-            btnListaDeProduto.Name = "btnListaDeProduto";
-            btnListaDeProduto.Size = new Size(216, 23);
-            btnListaDeProduto.TabIndex = 1;
-            btnListaDeProduto.Text = "Lista de Produtos";
-            btnListaDeProduto.UseVisualStyleBackColor = true;
-            btnListaDeProduto.Click += btnListaDeProduto_Click;
-            // 
             // FrmTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -59,7 +48,6 @@
             BackgroundImage = Properties.Resources.Sem_título;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(967, 500);
-            Controls.Add(btnListaDeProduto);
             Controls.Add(btnCadastroDeproduto);
             Name = "FrmTelaPrincipal";
             ShowIcon = false;
@@ -71,6 +59,5 @@
         #endregion
 
         private Button btnCadastroDeproduto;
-        private Button btnListaDeProduto;
     }
 }

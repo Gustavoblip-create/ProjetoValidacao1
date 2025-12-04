@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using ProjetoValidacao1.View;
+
 using ProjetoValidacao1.DataBase;
 using Microsoft.Data.SqlClient;
 
@@ -46,11 +46,11 @@ namespace ProjetoValidacao1
             cadastrodeProduto.Show();
         }
 
-        private void btnListaDeProduto_Click(object sender, EventArgs e)
-        {
-            FrmListadeProduto listadeProduto = new FrmListadeProduto();
-            listadeProduto.Show();
-        }
+        //private void btnListaDeProduto_Click(object sender, EventArgs e)
+        //{
+        //    FrmListadeProduto listadeProduto = new FrmListadeProduto();
+        //    listadeProduto.Show();
+        //}
     }
 
 }

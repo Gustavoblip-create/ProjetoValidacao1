@@ -9,6 +9,8 @@ namespace ProjetoValidacao1
     {
         private CadastroDeProdutoController _cadastroDeProdutoController;
 
+       
+
 
         public FrmCadastrodeProduto()
         {
@@ -16,10 +18,17 @@ namespace ProjetoValidacao1
             _cadastroDeProdutoController = new CadastroDeProdutoController(this);
 
         }
+        public void ExibirProdutos(List<CadastroDeProduto> produtos)
+        {
+            dgvCadastroDeProdutos.DataSource = produtos;
+        }
+
+
 
         private void FrmCadastrodeProduto_Load(object sender, EventArgs e)
         {
             DesabilitarCampos();
+            _cadastroDeProdutoController.ListarProduto();
         }
 
         public void ExibirMensagem(string mensagem)

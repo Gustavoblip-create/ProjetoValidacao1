@@ -9,7 +9,7 @@ namespace ProjetoValidacao1.Repositories
     public class CadastroDeProdutoRepository
 
     {
-        public List<CadastroDeProduto> Listar(string termo = "")
+        public List<CadastroDeProduto> Listar()
 
         {
 
@@ -19,19 +19,19 @@ namespace ProjetoValidacao1.Repositories
 
             {
 
-                string sql = "SELECT * FROM produtos";
+                string sql = "SELECT * FROM produto";
 
-                if (!string.IsNullOrEmpty(termo))
+                
 
-                    sql = "SELECT * FROM produtos WHERE nome_produto LIKE @termo";
+                 
 
                 using (var comando = new SqlCommand(sql, conexao))
 
                 {
 
-                    if (!string.IsNullOrEmpty(termo))
+                   
 
-                        comando.Parameters.AddWithValue("@termo", "%" + termo + "%");
+                      
 
                     conexao.Open();
 
@@ -76,7 +76,7 @@ namespace ProjetoValidacao1.Repositories
             using (var conexao = ConexaoDB.GetConexao())
             {
                 string sql =
-                    "INSERT INTO produtos(nome_produto, valor_produto, data_produto, lote_produto) " +
+                    "INSERT INTO produto(nome_produto, valor_produtos, data_produto, lote_produto) " +
                     "VALUES(@nome, @valor, @data, @lote)";
 
                 using (var comando = new SqlCommand(sql, conexao))

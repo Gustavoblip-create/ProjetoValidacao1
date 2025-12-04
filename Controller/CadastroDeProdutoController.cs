@@ -20,6 +20,18 @@ namespace ProjetoValidacao1.Controller
             _cadastroDeProdutoRepository = new CadastroDeProdutoRepository();
             
         }
+        public void ListarProduto(string termo = "")
+        {
+            try
+            {
+                var listarProduto = _cadastroDeProdutoRepository.Listar();
+                _frmCadastroDeProduto.ExibirProdutos(listarProduto);
+            }
+            catch (Exception ex)
+            {
+                _frmCadastroDeProduto.ExibirMensagem($"Erro ao Carregar os Produtos: {ex.Message} ");
+            }
+        }
 
         public void Salvar(CadastroDeProduto produto)
         {
@@ -27,7 +39,7 @@ namespace ProjetoValidacao1.Controller
             {
                 _cadastroDeProdutoRepository.Inserir(produto);
                 _frmCadastroDeProduto.ExibirMensagem("Produto salvo com sucesso!");
-                Listar();
+                ListarProduto();
                 _frmCadastroDeProduto.DesabilitarCampos();
             }
             catch (Exception ex)
@@ -42,7 +54,7 @@ namespace ProjetoValidacao1.Controller
             {
                 _cadastroDeProdutoRepository.Atualizar(produto);
                 _frmCadastroDeProduto.ExibirMensagem("Produto atualizado com sucesso!");
-                Listar();
+                ListarProduto();
                 _frmCadastroDeProduto.DesabilitarCampos();
             }
             catch (Exception ex)
@@ -57,7 +69,7 @@ namespace ProjetoValidacao1.Controller
             {
                 _cadastroDeProdutoRepository.Excluir(id);
                 _frmCadastroDeProduto.ExibirMensagem("Produto excluído com sucesso!");
-                Listar();
+                ListarProduto();
                 _frmCadastroDeProduto.DesabilitarCampos();
             }
             catch (Exception ex)

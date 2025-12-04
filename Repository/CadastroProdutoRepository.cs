@@ -47,7 +47,7 @@ namespace ProjetoValidacao1.Repositories
 
                             {
 
-                                Id = Convert.ToInt32(reader["id"]),
+                                Id = Convert.ToInt32(reader["id_produto"]),
 
                                 NomeProduto = reader["nome_produto"].ToString(),
 
@@ -76,7 +76,7 @@ namespace ProjetoValidacao1.Repositories
             using (var conexao = ConexaoDB.GetConexao())
             {
                 string sql =
-                    "INSERT INTO produto(nome_produto, valor_produtos, data_produto, lote_produto) " +
+                    "INSERT INTO produto(nome_produto, valor_produto, data_produto, lote_produto) " +
                     "VALUES(@nome, @valor, @data, @lote)";
 
                 using (var comando = new SqlCommand(sql, conexao))
@@ -102,15 +102,15 @@ namespace ProjetoValidacao1.Repositories
 
                 string sql =
 
-                    "UPDATE produtos SET nome_produto=@nome, valor_produto=@valor, " +
+                    "UPDATE produto SET nome_produto=@nome, valor_produto=@valor, " +
 
-                    "data_produto=@data, lote_produto=@lote WHERE id=@id";
+                    "data_produto=@data, lote_produto=@lote WHERE id_produto=@id_produto";
 
                 using (var comando = new SqlCommand(sql, conexao))
 
                 {
 
-                    comando.Parameters.AddWithValue("@id", produto.Id);
+                    comando.Parameters.AddWithValue("@id_produto", produto.Id);
 
                     comando.Parameters.AddWithValue("@nome", produto.NomeProduto);
 
@@ -138,13 +138,13 @@ namespace ProjetoValidacao1.Repositories
 
             {
 
-                string sql = "DELETE FROM produtos WHERE id=@id";
+                string sql = "DELETE FROM produto WHERE id_produto=@id_produto";
 
                 using (var comando = new SqlCommand(sql, conexao))
 
                 {
 
-                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@id_produto", id);
 
                     conexao.Open();
 

@@ -9,7 +9,7 @@ namespace ProjetoValidacao1
     {
         private CadastroDeProdutoController _cadastroDeProdutoController;
 
-       
+
 
 
         public FrmCadastrodeProduto()
@@ -152,6 +152,7 @@ namespace ProjetoValidacao1
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
             HabilitarCampos();
             btnEditar.Enabled = false;
 
@@ -163,13 +164,14 @@ namespace ProjetoValidacao1
 
             {
 
+
                 ExibirMensagem("Selecione um produto para excluir!");
 
                 return;
 
             }
 
-            DialogResult resp = MessageBox.Show("Deseja excluir este produto?",
+            var resp = MessageBox.Show("Deseja excluir este produto?",
 
                 "Confirmação",
 
@@ -185,6 +187,26 @@ namespace ProjetoValidacao1
 
             }
 
+        }
+
+       
+
+        private void dgvCadastroDeProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow linhasSelecionada = dgvCadastroDeProdutos.Rows[e.RowIndex];
+
+                txtCodigoDoProduto.Text = linhasSelecionada.Cells["Id"].Value.ToString();
+                txtLoteDoProduto.Text = linhasSelecionada.Cells["LoteProduto"].Value.ToString();
+                txtNomeDoProduto.Text = linhasSelecionada.Cells["NomeProduto"].Value.ToString();
+                txtValorProduto.Text = linhasSelecionada.Cells["ValorProduto"].Value.ToString();
+                dtpDataProduto.Text = linhasSelecionada.Cells["DataProduto"].Value.ToString();
+
+            }
+            btnExcluir.Enabled = true;
+            btnEditar.Enabled = true;
+            btnNovo.Enabled = false;
         }
     }
 }

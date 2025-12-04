@@ -203,8 +203,11 @@
             dgvCadastroDeProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCadastroDeProdutos.Location = new Point(12, 210);
             dgvCadastroDeProdutos.Name = "dgvCadastroDeProdutos";
+            dgvCadastroDeProdutos.ReadOnly = true;
+            dgvCadastroDeProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCadastroDeProdutos.Size = new Size(776, 396);
             dgvCadastroDeProdutos.TabIndex = 15;
+            dgvCadastroDeProdutos.CellDoubleClick += dgvCadastroDeProdutos_CellDoubleClick;
             // 
             // FrmCadastrodeProduto
             // 

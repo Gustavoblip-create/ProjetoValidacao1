@@ -22,7 +22,8 @@ namespace ProjetoValidacao1
         }
         public void ExibirProdutos(List<CadastroDeProduto> produtos)
         {
-            dgvCadastroDeProdutos.DataSource = produtos;
+            dgvCadastroDeProdutos.AutoGenerateColumns = true;
+            dgvCadastroDeProdutos.DataSource = null; dgvCadastroDeProdutos.DataSource = produtos;
         }
 
 
@@ -30,6 +31,8 @@ namespace ProjetoValidacao1
         private void FrmCadastrodeProduto_Load(object sender, EventArgs e)
         {
             //editei aqui
+
+            _cadastroDeProdutoController.ListarProduto();
             dgvCadastroDeProdutos.AutoGenerateColumns = true;
             DesabilitarCampos();
             _cadastroDeProdutoController.ListarProduto();
@@ -129,6 +132,8 @@ namespace ProjetoValidacao1
                 LoteProduto = txtLoteDoProduto.Text
 
             };
+
+            _cadastroDeProdutoController.Salvar(produto);
 
             if (!Validar(produto)) return;
 

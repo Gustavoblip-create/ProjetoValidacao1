@@ -16,6 +16,8 @@ namespace ProjetoValidacao1
         {
             InitializeComponent();
             _cadastroDeProdutoController = new CadastroDeProdutoController(this);
+            this.Load += FrmCadastrodeProduto_Load;
+
 
         }
         public void ExibirProdutos(List<CadastroDeProduto> produtos)
@@ -27,6 +29,8 @@ namespace ProjetoValidacao1
 
         private void FrmCadastrodeProduto_Load(object sender, EventArgs e)
         {
+            //editei aqui
+            dgvCadastroDeProdutos.AutoGenerateColumns = true;
             DesabilitarCampos();
             _cadastroDeProdutoController.ListarProduto();
         }

@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using ProjetoValidacao1.DataBase;
+using ProjetoValidacao1.Repository;
 using ProjetoValidacao1.Model;
 
 namespace ProjetoValidacao1.Repository
 {
-    public class Repository
+    public class UsuarioRepository
     {
         public Usuario Login(string email, string senha)
         {

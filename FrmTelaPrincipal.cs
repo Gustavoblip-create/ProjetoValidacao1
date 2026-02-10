@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 
 using ProjetoValidacao1.DataBase;
 using Microsoft.Data.SqlClient;
+using ProjetoValidacao1.Model;
 
 
 namespace ProjetoValidacao1
@@ -11,6 +12,11 @@ namespace ProjetoValidacao1
     public partial class FrmTelaPrincipal : Form
     {
         public FrmTelaPrincipal()
+        {
+            InitializeComponent();
+        }
+
+        public FrmTelaPrincipal(Usuario usuario)
         {
             InitializeComponent();
         }

@@ -63,6 +63,16 @@ namespace ProjetoValidacao1.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FrmLoginPng {
+            get {
+                object obj = ResourceManager.GetObject("FrmLoginPng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sem_título {
             get {
                 object obj = ResourceManager.GetObject("Sem título", resourceCulture);

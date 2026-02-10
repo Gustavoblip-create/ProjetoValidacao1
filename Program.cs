@@ -1,4 +1,5 @@
 using ProjetoValidacao1;
+using ProjetoValidacao1.View;
 
 namespace SistemaAtendimento
 {
@@ -13,7 +14,7 @@ namespace SistemaAtendimento
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmTelaPrincipal());
+            Application.Run(new FrmteladeLogin());
         }
     }
 }

@@ -141,10 +141,11 @@ namespace ProjetoValidacao1
             {
                 produto.Id = Convert.ToInt32(txtCodigoDoProduto.Text);
                 _cadastroDeProdutoController.Atualizar(produto);
-
-
-
             }
+
+            _cadastroDeProdutoController.ListarProduto();
+            LimparCampos();
+            DesabilitarCampos();
 
 
 
@@ -189,7 +190,7 @@ namespace ProjetoValidacao1
 
         }
 
-       
+
 
         private void dgvCadastroDeProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -207,6 +208,18 @@ namespace ProjetoValidacao1
             btnExcluir.Enabled = true;
             btnEditar.Enabled = true;
             btnNovo.Enabled = false;
+
+
         }
+
+        private void dgvCadastroDeProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+       
+
     }
 }
+
+

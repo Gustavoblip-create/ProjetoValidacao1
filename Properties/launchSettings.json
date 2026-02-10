@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ProjetoValidacao1": {
+      "commandName": "Project",
+      "nativeDebugging": false,
+      "hotReloadEnabled": true
+    }
+  }
+}

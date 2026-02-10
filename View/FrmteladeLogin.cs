@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjetoValidacao1.Model;
+using ProjetoValidacao1.Repository;
 
 namespace ProjetoValidacao1.View
 {
@@ -20,7 +21,7 @@ namespace ProjetoValidacao1.View
 
         private void btnentrar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtemail.Text) || string.IsNullOrWhiteSpace(txtsenha.Text))
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtSenha.Text))
             {
                 MessageBox.Show("Preencha o email ou senha");
                 return;
@@ -36,7 +37,7 @@ namespace ProjetoValidacao1.View
             {
                 MessageBox.Show($"Bem-vindo, {usuario.Nome}");
 
-                FrmTelaPrincipal tela = new FrmTelaPrincipal(usuario);
+                FrmTelaPrincipal tela = new FrmTelaPrincipal (usuario);
                 tela.Show();
                 this.Hide();
             }
@@ -44,6 +45,11 @@ namespace ProjetoValidacao1.View
             {
                 MessageBox.Show("Email ou senha inválidos!");
             }
+
+        }
+
+        private void FrmteladeLogin_Load(object sender, EventArgs e)
+        {
 
         }
     }

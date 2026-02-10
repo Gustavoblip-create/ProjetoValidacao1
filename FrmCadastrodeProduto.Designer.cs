@@ -207,6 +207,7 @@
             dgvCadastroDeProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCadastroDeProdutos.Size = new Size(776, 396);
             dgvCadastroDeProdutos.TabIndex = 15;
+            dgvCadastroDeProdutos.CellContentClick += dgvCadastroDeProdutos_CellContentClick;
             dgvCadastroDeProdutos.CellDoubleClick += dgvCadastroDeProdutos_CellDoubleClick;
             // 
             // FrmCadastrodeProduto

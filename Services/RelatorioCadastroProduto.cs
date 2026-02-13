@@ -9,6 +9,7 @@ namespace ProjetoValidacao1.Services
     public class RelatorioCadastroProduto
     {
         public string GerarListaCadastroProduto(List<CadastroProdutos> listaCadastroProdutos)
+            //
 
         {
 

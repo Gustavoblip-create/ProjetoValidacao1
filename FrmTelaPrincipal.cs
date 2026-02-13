@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-
 using ProjetoValidacao1.DataBase;
 using Microsoft.Data.SqlClient;
 using ProjetoValidacao1.Model;

@@ -78,28 +78,7 @@ namespace ProjetoValidacao1.Controller
                 _frmCadastroDeProduto.ExibirMensagem("Erro ao excluir: " + ex.Message);
             }
         }
-        public void GerarRelatorioPDF()
-        {
-
-            try
-            {
-                var ListaDeCadastroProdutos = _CadastroProdutoRepository.Listar();
-
-                var relatorioCadastroProduto = new RelatorioCadastroProduto();
-
-                string arquivo = relatorioCadastroProduto.GerarListaCadastroProduto(ListaCadastroProduto);
-
-                var psi = new ProcessStartInfo(arquivo)
-                {
-                    UseShellExecute = true,
-                };
-                Process.Start(psi);
-            }
-            catch (Exception ex)
-            {
-                /// erro ao gerar o relatório
-            }
-        }
+      
 
 
 

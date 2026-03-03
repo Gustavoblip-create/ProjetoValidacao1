@@ -1,14 +1,15 @@
-﻿using QuestPDF.Fluent;
+﻿using ProjetoValidacao1.Model;
+using QuestPDF.Companion;
+using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using QuestPDF.Companion;
 
 
 namespace ProjetoValidacao1.Services
 {
     public class RelatorioCadastroProduto
     {
-        public string GerarListaCadastroProduto(List<CadastroProdutos> listaCadastroProdutos)
+        public string GerarListaCadastroProduto(List<CadastroDeProduto> listaCadastroProdutos)
 
         {
 

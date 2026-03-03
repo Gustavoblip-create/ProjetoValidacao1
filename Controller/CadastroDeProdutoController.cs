@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ProjetoValidacao1.Model;
 
 using ProjetoValidacao1.Repositories;
+using ProjetoValidacao1.Services;
 
 namespace ProjetoValidacao1.Controller
 
@@ -83,11 +84,11 @@ namespace ProjetoValidacao1.Controller
 
             try
             {
-                var ListaDeCadastroProdutos = _CadastroProdutoRepository.Listar();
+                var ListaDeCadastroProdutos = _cadastroDeProdutoRepository.Listar();
 
                 var relatorioCadastroProduto = new RelatorioCadastroProduto();
 
-                string arquivo = relatorioCadastroProduto.GerarListaCadastroProduto(ListaCadastroProduto);
+                string arquivo = relatorioCadastroProduto.GerarListaCadastroProduto(ListaDeCadastroProdutos);
 
                 var psi = new ProcessStartInfo(arquivo)
                 {

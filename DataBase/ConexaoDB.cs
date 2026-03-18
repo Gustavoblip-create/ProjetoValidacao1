@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using System.Configuration;
 using Microsoft.Data.SqlClient;
-
-
 
 namespace ProjetoValidacao1.DataBase
 {
@@ -15,9 +7,10 @@ namespace ProjetoValidacao1.DataBase
     {
         public static SqlConnection GetConexao()
         {
-            string connectioString = ConfigurationManager.ConnectionStrings["projeto_validacao"].ConnectionString;
+            string connectionString =
+                ConfigurationManager.ConnectionStrings["projeto_validacao"].ConnectionString;
 
-            return new SqlConnection(connectioString);
+            return new SqlConnection(connectionString);
         }
     }
 }

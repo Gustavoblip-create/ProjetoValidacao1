@@ -14,12 +14,15 @@ namespace ProjetoValidacao1.Repository
     {
         public Usuario Login(string email, string senha)
         {
+            //
             using (SqlConnection conexao = ConexaoDB.GetConexao())
             {
                 conexao.Open();
 
-                string sql = @"SELECT id, Nome, Email FROM Usuarios
-                WHERE Email = @email AND Senha = @senha";
+                string sql = @"SELECT id_usuario, nome_usuario, email_usuario 
+                       FROM usuario
+                       WHERE email_usuario = @email 
+                       AND senha_usuario = @senha";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conexao))
                 {
@@ -35,14 +38,12 @@ namespace ProjetoValidacao1.Repository
                                 Id = dr.GetInt32(0),
                                 Nome = dr.GetString(1),
                                 Email = dr.GetString(2)
-
-
                             };
                         }
                     }
-                    
                 }
             }
+
             return null;
         }
     }

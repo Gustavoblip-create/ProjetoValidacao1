@@ -50,6 +50,7 @@ namespace ProjetoValidacao1
             dtpDataProduto.Enabled = true;
             txtLoteDoProduto.ReadOnly = false;
 
+
             btnNovo.Enabled = false;
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -133,25 +134,10 @@ namespace ProjetoValidacao1
 
             };
             //
-
+            if (!Validar(produto)) return;
             _cadastroDeProdutoController.Salvar(produto);
 
-            if (!Validar(produto)) return;
 
-            if (string.IsNullOrEmpty(txtCodigoDoProduto.Text))
-
-            {
-
-                // Salvar
-
-                _cadastroDeProdutoController.Salvar(produto);
-
-            }
-            else
-            {
-                produto.Id = Convert.ToInt32(txtCodigoDoProduto.Text);
-                _cadastroDeProdutoController.Atualizar(produto);
-            }
 
             _cadastroDeProdutoController.ListarProduto();
             LimparCampos();
@@ -166,6 +152,7 @@ namespace ProjetoValidacao1
 
             HabilitarCampos();
             btnEditar.Enabled = false;
+            btnAtualizar.Enabled = true;
 
         }
 
@@ -227,8 +214,32 @@ namespace ProjetoValidacao1
 
         }
 
-       
+        private void txtCodigoDoProduto_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            CadastroDeProduto produto = new CadastroDeProduto()
+
+            {
+
+                NomeProduto = txtNomeDoProduto.Text,
+
+                ValorProduto = decimal.TryParse(txtValorProduto.Text, out decimal v) ? v : 0,
+
+                DataProduto = dtpDataProduto.Value,
+
+                LoteProduto = txtLoteDoProduto.Text
+
+            };
+                if (!string.IsNullOrEmpty(txtCodigoDoProduto.Text))
+                {
+                    produto.Id = Convert.ToInt32(txtCodigoDoProduto.Text);
+                    _cadastroDeProdutoController.Atualizar(produto);
+                }
+        }
     }
 }
 

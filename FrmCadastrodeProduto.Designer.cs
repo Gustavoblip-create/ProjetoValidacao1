@@ -45,6 +45,7 @@
             btnCancelar = new Button();
             btnEditar = new Button();
             dgvCadastroDeProdutos = new DataGridView();
+            btnAtualizar = new Button();
             grbCadastrarProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCadastroDeProdutos).BeginInit();
             SuspendLayout();
@@ -87,11 +88,11 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(473, 612);
+            btnSalvar.Location = new Point(392, 612);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
             btnSalvar.TabIndex = 9;
-            btnSalvar.Text = "Salvar";
+            btnSalvar.Text = "Cadastrar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
@@ -148,6 +149,7 @@
             txtCodigoDoProduto.Name = "txtCodigoDoProduto";
             txtCodigoDoProduto.Size = new Size(163, 23);
             txtCodigoDoProduto.TabIndex = 11;
+            txtCodigoDoProduto.TextChanged += txtCodigoDoProduto_TextChanged;
             // 
             // lblLoteProduto
             // 
@@ -170,7 +172,7 @@
             // 
             // btnNovo
             // 
-            btnNovo.Location = new Point(392, 612);
+            btnNovo.Location = new Point(311, 612);
             btnNovo.Name = "btnNovo";
             btnNovo.Size = new Size(75, 23);
             btnNovo.TabIndex = 12;
@@ -201,7 +203,7 @@
             // dgvCadastroDeProdutos
             // 
             dgvCadastroDeProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCadastroDeProdutos.Location = new Point(12, 210);
+            dgvCadastroDeProdutos.Location = new Point(11, 210);
             dgvCadastroDeProdutos.Name = "dgvCadastroDeProdutos";
             dgvCadastroDeProdutos.ReadOnly = true;
             dgvCadastroDeProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -210,12 +212,24 @@
             dgvCadastroDeProdutos.CellContentClick += dgvCadastroDeProdutos_CellContentClick;
             dgvCadastroDeProdutos.CellDoubleClick += dgvCadastroDeProdutos_CellDoubleClick;
             // 
+            // btnAtualizar
+            // 
+            btnAtualizar.Enabled = false;
+            btnAtualizar.Location = new Point(471, 612);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(75, 23);
+            btnAtualizar.TabIndex = 16;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
             // FrmCadastrodeProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
             ClientSize = new Size(799, 647);
+            Controls.Add(btnAtualizar);
             Controls.Add(dgvCadastroDeProdutos);
             Controls.Add(btnEditar);
             Controls.Add(btnCancelar);
@@ -250,5 +264,6 @@
         private Button btnEditar;
         private DateTimePicker dtpDataProduto;
         private DataGridView dgvCadastroDeProdutos;
+        private Button btnAtualizar;
     }
 }

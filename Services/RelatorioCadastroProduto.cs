@@ -9,8 +9,8 @@ namespace ProjetoValidacao1.Services
 {
     public class RelatorioCadastroProduto
     {
-        public string GerarListaCadastroProduto(List<CadastroDeProduto> listaCadastroProdutos)
-
+        public string GerarListaCadastroProduto(List<CadastroDeProduto> listaCadastroProdutos)//
+            
         {
 
             QuestPDF.Settings.License =
